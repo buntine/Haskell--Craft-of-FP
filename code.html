@@ -1,0 +1,179 @@
+<HTML>
+
+<HEAD>
+
+<TITLE>Programs from Haskell: The Craft of Functional Programming, Second Edition</TITLE> 
+
+</HEAD>
+
+<BODY  BGCOLOR="#ffffff">
+
+<center>
+<h2>
+<font color="#990000">
+Programs from
+</font>
+</H2>
+<H2>
+Haskell:  The Craft of Functional Programming, Second Edition
+</h2>
+</center>
+
+<hr>
+
+<p>
+The Haskell code from this text can be downloaded from here. It is divided
+into chapter-size scripts, except when this proves to be too unwieldy, when
+they are further subdivided.
+
+<p>
+These scripts are supplied so that you can execute the programs in the book;
+the comments that they contain are not intended to be a substitute for the 
+commentary which appears in the text itself.
+
+<p>
+Scripts are provided in both literate (<code>Foo<font color="#990000">.lhs</font></code>) and 
+non-literate (<code>Foo<font color="#990000">.hs</font></code>) forms (at least for
+the early chapters).
+In literate scripts all code occurs on lines like
+<pre>
+>       dummy = dummy
+</pre>
+Sometimes, however, in literate scripts code appears which is just indented, without the
+<code>></code>: this is when the code acts as a
+comment on the script.
+<p>
+Dummy definitions like the one above are included in some of the scripts.
+This happens when the definition is left as an exercise for the reader.
+For these scripts to work properly you need to add the appropriate definitions to
+the script.
+
+All the scripts are contained in the files <a href="Code.tar.gz">Code.tar.gz</a>
+(Unix) and <a href="Code.ZIP">Code.ZIP</a> (PC).
+
+<h3>
+Scripts chapter-by-chapter
+</h3>
+<ul>
+<li><a href="Chapter1.hs">Chapter1.hs</a>, <a href="Chapter1.lhs">Chapter1.lhs</a>
+<li> Materials from Chapter2.
+  <ul>
+  <li><a href="Chapter2.hs">Chapter2.hs</a>, <a href="Chapter2.lhs">Chapter2.lhs</a>
+  <li><a href="FirstLiterate.lhs">FirstLiterate.lhs</a>
+  <li><a href="FirstScript.hs">FirstScript.hs</a>
+  <li><a href="Pictures.hs">Pictures.hs</a>, <a href="Pictures.lhs">Pictures.lhs</a>
+  </ul>
+<li><a href="Chapter3.hs">Chapter3.hs</a>, <a href="Chapter3.lhs">Chapter3.lhs</a>
+<li><a href="Chapter4.hs">Chapter4.hs</a>, <a href="Chapter4.lhs">Chapter4.lhs</a>
+<li><a href="Chapter5.hs">Chapter5.hs</a>, <a href="Chapter5.lhs">Chapter5.lhs</a>
+<li><a href="Chapter6.hs">Chapter6.hs</a>, <a href="Chapter6.lhs">Chapter6.lhs</a>
+<li><a href="Chapter7.hs">Chapter7.hs</a>, <a href="Chapter7.lhs">Chapter7.lhs</a>
+<li><a href="Chapter8.hs">Chapter8.hs</a>, <a href="Chapter8.lhs">Chapter8.lhs</a>
+<li><a href="Chapter9.hs">Chapter9.hs</a>, <a href="Chapter9.lhs">Chapter9.lhs</a>
+<li><a href="Chapter10.hs">Chapter10.hs</a>, <a href="Chapter10.lhs">Chapter10.lhs</a>
+<li><a href="Chapter11.hs">Chapter11.hs</a>, <a href="Chapter11.lhs">Chapter11.lhs</a>
+<li><a href="Chapter12.hs">Chapter12.hs</a>, <a href="Chapter12.lhs">Chapter12.lhs</a>
+<li><a href="Chapter13.hs">Chapter13.hs</a>, <a href="Chapter13.lhs">Chapter13.lhs</a>
+<li>Chapter 14 is given in two parts.
+  <ul>
+  <li><a href="Chapter14_1.hs">Chapter14_1.hs</a>, <a href="Chapter14_1.lhs">Chapter14_1.lhs</a>
+  <li><a href="Chapter14_2.hs">Chapter14_2.hs</a>, <a href="Chapter14_2.lhs">Chapter14_2.lhs</a>
+  </ul>
+<li>Chapter 15 is given in various parts. Here are
+the introductory modules of the first part:
+  <ul>
+  <li><a href="Huffman/Ant.hs">Ant.hs</a>
+  <li><a href="Huffman/Bee.hs">Bee.hs</a>
+  <li><a href="Huffman/Cow.hs">Cow.hs</a>
+  </ul>
+The Huffman coding example is given under case studies below.
+<li>Chapter 16 contains a collection of abstract data types.
+  <ul>
+  <li><a href="AbsTypes/Queues1.hs">Queues1.hs</a>,
+  <a href="AbsTypes/Queues1.lhs">Queues1.lhs</a>
+  <li><a href="AbsTypes/Queues2.hs">Queues2.hs</a>,
+  <a href="AbsTypes/Queues2.lhs">Queues2.lhs</a>
+  <li><a href="AbsTypes/Queues3.hs">Queues3.hs</a>,
+  <a href="AbsTypes/Queues3.lhs">Queues3.lhs</a>
+  <li><a href="AbsTypes/Relation.hs">Relation.hs</a>,
+  <a href="AbsTypes/Relation.lhs">Relation.lhs</a>
+  <li><a href="AbsTypes/Set.hs">Set.hs</a>,
+  <a href="AbsTypes/Set.lhs">Set.lhs</a>
+  <li><a href="AbsTypes/Store.hs">Store.hs</a>,
+  <a href="AbsTypes/Store.lhs">Store.lhs</a>
+  <li><a href="AbsTypes/StoreFun.hs">StoreFun.hs</a>,
+  <a href="AbsTypes/StoreFun.lhs">StoreFun.lhs</a>
+  <li><a href="AbsTypes/Tree.hs">Tree.hs</a>,
+  <a href="AbsTypes/Tree.lhs">Tree.lhs</a>
+  <li><a href="AbsTypes/UseStore.hs">UseStore.hs</a>,
+  <a href="AbsTypes/UseStore.lhs">UseStore.lhs</a>
+  <li><a href="AbsTypes/UseStoreFun.hs">UseStoreFun.hs</a>,
+  <a href="AbsTypes/UseStoreFun.lhs">UseStoreFun.lhs</a>
+  <li><a href="AbsTypes/UseTree.hs">UseTree.hs</a>,
+  <a href="AbsTypes/UseTree.lhs">UseTree.lhs</a>
+  </ul>
+<li><a href="Chapter17.hs">Chapter17.hs</a>, <a href="Chapter17.lhs">Chapter17.lhs</a> Parsing is given separately below.
+<li><a href="Chapter18.hs">Chapter18.hs</a>, <a href="Chapter18.lhs">Chapter18.lhs</a> 
+<li><a href="Chapter19.hs">Chapter19.hs</a>, <a href="Chapter19.lhs">Chapter19.lhs</a> 
+<li><a href="Chapter20.hs">Chapter20.hs</a>, <a href="Chapter20.lhs">Chapter20.lhs</a> 
+</ul>
+
+<h3>
+Case studies
+</h3>
+<ul>
+<li> Calculator
+  <ul>
+  <li><a href="Calculator/Eval.hs">Eval.hs</a>,
+  <a href="Calculator/Eval.lhs">Eval.lhs</a>
+  <li><a href="Calculator/Interact.hs">Interact.hs</a>,
+  <a href="Calculator/Interact.lhs">Interact.lhs</a>
+  <li><a href="Calculator/MonadIO.hs">MonadIO.hs</a>
+  <li><a href="Calculator/ParseCalc.hs">ParseCalc.hs</a>,
+  <a href="Calculator/ParseCalc.lhs">ParseCalc.lhs</a>
+  <li><a href="Calculator/ParseLib.hs">ParseLib.hs</a>,
+  <a href="Calculator/ParseLib.lhs">ParseLib.lhs</a>
+  <li><a href="Calculator/Store.hs">Store.hs</a>,
+  <a href="Calculator/Store.lhs">Store.lhs</a>
+  <li><a href="Calculator/Types.hs">Types.hs</a>,
+  <a href="Calculator/Types.lhs">Types.lhs</a>
+  </ul>
+<li> Huffman coding 
+  <ul>
+  <li><a href="Huffman/CodeTable.lhs">CodeTable.lhs</a>
+  <li><a href="Huffman/Coding.lhs">Coding.lhs</a>
+  <li><a href="Huffman/Frequency.lhs">Frequency.lhs</a>
+  <li><a href="Huffman/Main.lhs">Main.lhs</a>
+  <li><a href="Huffman/MakeCode.lhs">MakeCode.lhs</a>
+  <li><a href="Huffman/MakeTree.lhs">MakeTree.lhs</a>
+  <li><a href="Huffman/Types.lhs">Types.lhs</a>
+  </ul>
+<li> Parsing
+  <ul>
+  <li><a href="Parsing/ParseLib.hs">ParseLib.hs</a>, <a href="Parsing/ParseLib.lhs">ParseLib.lhs</a>
+  <li><a href="Parsing/Parsing.hs">Parsing.hs</a>, <a href="Parsing/Parsing.lhs">Parsing.lhs</a>
+  </ul>
+<li> Simulation
+  <ul>
+  <li><a href="Simulation/Base.hs">Base.hs</a>, <a href="Simulation/Base.lhs">Base.lhs</a>
+  <li><a href="Simulation/QueueState.hs">QueueState.hs</a>, <a href="Simulation/QueueState.lhs">QueueState.lhs</a>
+  <li><a href="Simulation/ServerState.hs">ServerState.hs</a>, <a href="Simulation/ServerState.lhs">ServerState.lhs</a>
+  <li><a href="Simulation/RandomGen.hs">RandomGen.hs</a>, <a href="Simulation/RandomGen.lhs">RandomGen.lhs</a>
+  <li><a href="Simulation/TopLevelServe.hs">TopLevelServe.hs</a>, <a href="Simulation/TopLevelServe.lhs">TopLevelServe.lhs</a>
+  </ul>
+</ul>
+
+
+
+<hr>
+
+<P><STRONG>&#169; Simon Thompson, 1999.</STRONG><P>
+
+<em>
+Last modified 5 January 2001.
+</em>
+
+<!-- comment -->
+
+</BODY>
+</HTML>
