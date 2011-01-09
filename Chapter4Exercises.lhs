@@ -133,3 +133,27 @@ Exercise 4.9
 
 
 Exercise 4.10
+
+>   forg :: Int -> Int
+>   forg 0 = 1
+>   forg 1 = 2
+>   forg 2 = 3
+>   forg 3 = 4
+>   forg 4 = 0
+>   forg 5 = 6
+>   forg _ = 0
+
+>   anyZero :: Int -> Bool
+>   anyZero 0 = forg 0 == 0
+>   anyZero n = forg n == 0 || anyZero (n - 1)
+
+
+Exercise 4.11
+
+>   sumFun :: (Int -> Int) -> Int -> Int
+>   sumFun f n
+>     | n==0  = f 0
+>     | n>0   = sumFun f (n - 1) + f n
+
+>   regions :: Int -> Int
+>   regions n = sumFun (\x -> x) n
