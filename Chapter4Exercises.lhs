@@ -157,3 +157,10 @@ Exercise 4.11
 
 >   regions :: Int -> Int
 >   regions n = sumFun (\x -> x) n
+
+
+Exercise 4.13
+
+>   hcf :: Int -> Int -> Int
+>   hcf x 0 = x
+>   hcf x y = hcf y (rem x y)
