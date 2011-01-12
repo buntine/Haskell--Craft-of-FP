@@ -164,3 +164,11 @@ Exercise 4.13
 >   hcf :: Int -> Int -> Int
 >   hcf x 0 = x
 >   hcf x y = hcf y (rem x y)
+
+
+Exercise 4.14
+
+>   twon :: Int -> Int
+>   twon 0 = 1
+>   twon 1 = 2
+>   twon n = 2 * (twon (n - 1))
