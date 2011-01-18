@@ -101,6 +101,72 @@ Exercise 5.11
 >   elem i lst = length (matches i lst) > 0
 
 
-Exercise 5.12
+Exercise 5.13
 
->  
+>   type Person   = String
+>   type Book     = String
+>   type Database = [(Person, Book)]
+
+>   makeLoan  :: Database -> Person -> Book -> Database
+>   makeLoan db person book = [(person, book)] ++ db
+
+>   returnLoan :: Database -> Person -> Book -> Database
+>   returnLoan db person book = [pair | pair<-db, pair /= (person, book)]
+
+>   books :: Database -> Person -> [Book]
+>   books db person = [b | (p,b)<-db, p == person]
+
+>   borrowers :: Database -> Book -> [Person]
+>   borrowers db book = [p | (p,b)<-db, b == book]
+
+>   borrowed :: Database -> Book -> Bool
+>   borrowed db book = borrowers db book /= []
+
+>   numBorrowed :: Database -> Person -> Int
+>   numBorrowed db person = length (books db person)
+
+
+Exercise 5.20
+
+>   romanDigit :: Char -> String
+>   romanDigit c = ["0", "I", "II", "III", "IV", "V", "VI", "VII", "IIX", "IX"]!!((ord c) - 48)
+
+
+Exercise 5.21
+
+>   onThreeLines :: String -> String -> String -> String
+>   onThreeLines a b c = a++"\n"++b++"\n"++c
+
+
+Exercise 5.22
+
+>   onSeparateLines :: [String] -> String
+>   onSeparateLines [] = ""
+>   onSeparateLines lines
+>     | length lines == 1  = head lines
+>     | otherwise          = (head lines) ++ "\n" ++ (onSeparateLines (tail lines))
+
+
+Exercise 5.23
+
+>   duplicate :: String -> Int -> String
+>   duplicate s 1 = s
+>   duplicate s n
+>     | n <= 0     = ""
+>     | otherwise  = s ++ (duplicate s (n-1))
+
+
+Exercise 5.26
+
+>   fib :: Int -> Int
+>   fib 0 = 0
+>   fib 1 = 1
+>   fib n = (fib (n - 1)) + (fib (n - 2))
+
+>   fibs :: Int -> Int -> String
+>   fibs n to
+>     | n == to    = ""
+>     | otherwise  = (show n) ++ "\t" ++ (show (fib n)) ++ "\n" ++ (fibs (n + 1) to)
+
+>   fibTable :: Int -> String
+>   fibTable n = "n\tfib n\n" ++ (fibs 0 (n + 1))
