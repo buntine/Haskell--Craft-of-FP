@@ -133,13 +133,50 @@ Exercise 6.14
 >   imageWidth img = length ((fst img)!!0)
 
 >   flipImageGeoH :: Image -> Image
->   flipImageGeoH img = moveImage (flipImageNaiveH img) (imageHeight img) 0
+>   flipImageGeoH img = moveImage (flipImageNaiveH img) (imageWidth img) 0
 
 >   flipImageGeoV :: Image -> Image
->   flipImageGeoV img = moveImage (flipImageNaiveV img) 0 (imageWidth img)
+>   flipImageGeoV img = moveImage (flipImageNaiveV img) 0 (imageHeight img)
 
 >   rotateImageGeo :: Image -> Image
 >   rotateImageGeo img = moveImage (rotateImageNaive img) (- (imageWidth img)) (imageHeight img)
 
 >   rotateImageGeo90 :: Image -> Image
 >   rotateImageGeo90 img = moveImage (rotateImageNaive90 img) 0 (imageHeight img)
+
+
+Erercise 6.18
+
+>   maxThreeOccurs :: Int -> Int -> Int -> (Int, Int)
+>   maxThreeOccurs a b c
+>     = (maxOccurs, timesOccurs)
+>       where
+>       maxOccurs   = max a (max b c)
+>       timesOccurs = length (filter (\x -> x == maxOccurs) [a, b, c])
+
+
+Exercise 6.20
+
+>   type Name     = String
+>   type Price    = Int
+>   type BarCode  = Int
+>   type Database = [(BarCode, Name, Price)]
+
+>   type TillType = [BarCode]
+>   type BillType = [(Name, Price)]
+
+>   codeIndex :: Database
+>   codeIndex = [(4719, "Barries nuts", 345),
+>                (3513, "Smolik deck", 5945),
+>                (3883, "Badass Jacket", 595),
+>                (4758, "Cheeseburger", 3943),
+>                (1523, "Whale dildo", 1535),
+>                (8583, "Muska Shoes", 7900)]
+
+>   lineLength :: Int
+>   lineLength = 30
+
+>   produceBill :: TillBill -> String
+>   produceBill = formatBill . makeBill
+
+>   
