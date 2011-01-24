@@ -155,7 +155,7 @@ Erercise 6.18
 >       timesOccurs = length (filter (\x -> x == maxOccurs) [a, b, c])
 
 
-Exercise 6.20
+Extended Exercise - Shopping Bill
 
 >   type Name     = String
 >   type Price    = Int
@@ -176,7 +176,63 @@ Exercise 6.20
 >   lineLength :: Int
 >   lineLength = 30
 
->   produceBill :: TillBill -> String
->   produceBill = formatBill . makeBill
+>   --produceBill :: TillType -> String
+>  -- produceBill = formatBill . makeBill
 
->   
+
+Exercise 6.20
+
+>   prefixZero :: String -> String
+>   prefixZero s
+>     | length s < 2  = '0':s
+>     | otherwise     = s
+
+>   formatPence :: Price -> String
+>   formatPence p
+>     = pounds ++ "." ++ pence
+>       where
+>       pounds = show (div p 100)
+>       pence  = (prefixZero . show) (mod p 100)
+
+
+Exercise 6.21
+
+>   separator :: String -> String
+>   separator s = replicate (lineLength - length s) '.'
+
+>   formatLine :: (Name,Price) -> String
+>   formatLine (name, pence)
+>     = name ++ (separator name) ++ (formatPence pence) ++ "\n"
+
+
+Exercise 6.22
+
+>   formatLines :: [(Name, Price)] -> String
+>   formatLines lines
+>     = foldl (++) "" formattedLines
+>       where
+>       formattedLines = [formatLine l | l <- lines]
+
+
+Exercise 6.23
+Using recursion because the book hasn't introduced reduce (fold, whatever) yet.
+
+>   makeTotal :: BillType -> Price
+>   makeTotal lines
+>     = findTotal prices
+>       where
+>       prices = [price | (name, price) <- lines]
+>       findTotal :: [Int] -> Int
+>       findTotal ps
+>         | ps == []  = 0
+>         | otherwise = head ps + (findTotal (tail ps))
+
+
+Exercise 6.24
+
+>   formatTotal :: Price -> String
+>   formatTotal pence
+>     = title ++ (separator title) ++ price ++ "\n"
+>       where
+>       title = "Total"
+>       price = formatPence pence
