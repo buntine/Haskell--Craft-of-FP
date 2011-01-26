@@ -221,11 +221,11 @@ Using recursion because the book hasn't introduced reduce (fold, whatever) yet.
 >   makeTotal lines
 >     = findTotal prices
 >       where
->       prices = [price | (name, price) <- lines]
+>       prices = [price | (_, price) <- lines]
 >       findTotal :: [Int] -> Int
 >       findTotal ps
->         | ps == []  = 0
->         | otherwise = head ps + (findTotal (tail ps))
+>         | null ps   = 0
+>         | otherwise = head ps + findTotal (tail ps)
 
 
 Exercise 6.24
@@ -236,3 +236,41 @@ Exercise 6.24
 >       where
 >       title = "Total"
 >       price = formatPence pence
+
+
+Exercise 6.25
+
+>   formatBill :: BillType -> String
+>   formatBill bill
+>     = billLines ++ "\n" ++ (formatTotal total)
+>       where
+>       billLines = formatLines bill
+>       total     = makeTotal bill
+
+
+Exercise 6.26
+
+>   look :: Database -> BarCode -> (Name, Price)
+>   look db bc
+>     | null match  = ("Unknown item", 0)
+>     | otherwise   = head match
+>     where
+>       match = [(n,p) | (b,n,p)<-db, b==bc]
+
+
+Exercise 6.27
+
+>   lookupbc :: BarCode -> (Name, Price)
+>   lookupbc bc = look codeIndex bc
+
+
+Exercise 6.28
+
+>   makeBill :: TillType -> BillType
+>   makeBill tt = [lookupbc item | item<-tt]
+
+
+Just a sample bill.
+
+>   printBill :: IO ()
+>   printBill = (putStr . formatBill . makeBill) [3513, 2000, 3883, 1523]
