@@ -37,9 +37,6 @@ Exercise 7.3
 >     where
 >     ds = (intify . digits) s
 
-
-Exercise 7.4
-
 >   twoDigitsSum2 :: String -> Int
 >   twoDigitsSum2 s
 >     | null ds         = 0
@@ -47,3 +44,43 @@ Exercise 7.4
 >     | otherwise       = (ds!!0) + (ds!!1)
 >     where
 >     ds = (intify . digits) s
+
+
+Exercise 7.4
+
+>   product2 :: [Int] -> Int
+>   product2 []     = 1
+>   product2 (x:xs) = x * product xs
+
+
+Exercise 7.5
+
+>   and2, or2 :: [Bool] -> Bool
+
+>   and2 []     = True
+>   and2 (x:xs) = x && and2 xs
+
+>   or2 []     = False
+>   or2 (x:xs) = x || or2 xs
+
+
+Exercise 7.6
+
+>   elemNum :: Int -> [Int] -> Int
+>   elemNum x [] = 0
+>   elemNum x (y:ys)
+>     | x == y     = 1 + (elemNum x ys)
+>     | otherwise  = elemNum x ys
+
+
+Exercise 7.7
+
+>   unique :: [Int] -> [Int]
+>   unique [] = []
+>   unique (x:xs)
+>     | xs /= stripped  = unique stripped
+>     | otherwise       = x : unique stripped
+>     where
+>     stripped = [y | y<-xs, y /= x]
+
+
