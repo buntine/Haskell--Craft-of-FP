@@ -84,3 +84,17 @@ Exercise 7.7
 >     stripped = [y | y<-xs, y /= x]
 
 
+
+Exercise 7.8
+
+>   reverse2 :: [a] -> [a]
+>   reverse2 []     = []
+>   reverse2 (x:xs) = concat [reverse2 xs, [x]]
+
+>   unzip2 :: [(a,b)] -> ([a],[b])
+>   unzip2 []     = ([],[])
+>   unzip2 (x:xs) = ((fst x):(fst (unzip2 xs)),
+                     (snd x):(snd (unzip2 xs)))
+
+
+
