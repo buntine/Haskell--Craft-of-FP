@@ -135,15 +135,47 @@ Exercise 7.18
 >   sublist _ []      = False
 >   sublist (x:xs) ys = (elem x ys) && (sublist xs ys)
 
->   subs :: Eq a => [a] -> [a] -> Bool
->   subs [] _          = True
->   subs _ []          = False
->   subs (x:xs) (y:ys)
->     | null xs && x == y                  = True
->     | null ys && xs /= []                = False
->     | x == y && xx == yy && subs xxs yys = True
->     | subs (x:xs) ys                     = True
->     | otherwise                          = False
+>   subseq :: Eq a => [a] -> [a] -> Bool
+>   subseq [] _          = True
+>   subseq _ []          = False
+>   subseq (x:xs) (y:ys)
+>     | null xs && x == y                    = True
+>     | null ys && xs /= []                  = False
+>     | x == y && xx == yy && subseq xxs yys = True
+>     | subseq (x:xs) ys                     = True
+>     | otherwise                            = False
 >       where
 >       (xx:xxs) = xs
 >       (yy:yys) = ys
+
+
+Text Processing
+
+>   whitespace = ['\n', '\t', ' ']
+
+>   getWord :: String -> String
+>   getWord []     = []
+>   getWord (x:xs)
+>     | elem x whitespace = []
+>     | otherwise         = x : getWord xs
+
+>   dropWord :: String -> String
+>   dropWord []     = []
+>   dropWord (x:xs)
+>     | elem x whitespace = (x:xs)
+>     | otherwise         = dropWord xs
+
+>   dropSpace :: String -> String
+>   dropSpace []     = []
+>   dropSpace (x:xs)
+>     | elem x whitespace = dropSpace xs
+>     | otherwise         = (x:xs)
+
+>   type Word2 = String
+
+>   splitWords :: String -> [Word2]
+>   splitWords s = (split . dropSpace) s
+
+>   split :: String -> [Word2]
+>   split [] = []
+>   split s  = (getWord s) : (split . dropSpace . dropWord) s
