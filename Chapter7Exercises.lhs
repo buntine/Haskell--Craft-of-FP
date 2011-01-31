@@ -1,5 +1,5 @@
 >   module Chapter7Exercises where
->   import Hugs.Prelude
+>   import Prelude hiding (getLine)
 >   import Char
 
 
@@ -171,11 +171,92 @@ Text Processing
 >     | elem x whitespace = dropSpace xs
 >     | otherwise         = (x:xs)
 
->   type Word2 = String
+>   type Word = String
+>   type Line = [Word]
+>   lineLen :: Int
+>   lineLen = 35
 
->   splitWords :: String -> [Word2]
+>   splitWords :: String -> [Word]
 >   splitWords s = (split . dropSpace) s
 
->   split :: String -> [Word2]
+>   split :: String -> [Word]
 >   split [] = []
 >   split s  = (getWord s) : (split . dropSpace . dropWord) s
+
+>   getLine :: Int -> [Word] -> Line
+>   getLine len []     = []
+>   getLine len (w:ws)
+>     | length w <= len = w : restOfLine
+>     | otherwise       = []
+>       where
+>       newLen     = len - (length w + 1)
+>       restOfLine = getLine newLen ws
+
+
+Exercise 7.19
+
+>   dropLine :: Int -> [Word] -> Line
+>   dropLine len []     = []
+>   dropLine len (w:ws)
+>     | length w <= len = restOfLine
+>     | otherwise       = (w:ws)
+>       where
+>       newLen     = len - (length w + 1)
+>       restOfLine = dropLine newLen ws
+
+>   splitLines :: [Word] -> [Line]
+>   splitLines [] = []
+>   splitLines ws = getLine lineLen ws : splitLines (dropLine lineLen ws)
+
+>   fill :: String -> [Line]
+>   fill = splitLines .  splitWords
+
+
+Exercise 7.20
+
+>   joinLine :: Line -> String
+>   joinLine []     = ""
+>   joinLine (w:ws)
+>     | null ws   = w
+>     | otherwise = w ++ " " ++ (joinLine ws)
+
+
+Exercise 7.21
+
+>   joinLines :: [Line] -> String
+>   joinLines []     = ""
+>   joinLines (l:ls) = (joinLine l) ++ "\n" ++ (joinLines ls)
+
+
+Exercise 7.23
+
+>   spacesFor :: Line -> Int -> Int
+>   spacesFor _ 0  = 1
+>   spacesFor ws n
+>     | div n (length ws) > 1 = 1 + (spacesFor ws (n - 1))
+>     | otherwise             = 1
+
+>   doJust :: Line -> Int -> String
+>   doJust [] _     = ""
+>   doJust (w:ws) s
+>     | null ws   = w
+>     | otherwise = w ++ chars ++ (doJust ws (s - spaces))
+>       where
+>       spaces = spacesFor ws s
+>       chars  = replicate spaces ' '
+
+>   justLine :: Line -> String
+>   justLine [] = ""
+>   justLine ws
+>     = doJust ws spaces
+>       where
+>       spaces = lineLen - (foldl (\n w -> n + length w) 0 ws)
+
+>   justLines :: [Line] -> String
+>   justLines []     = ""
+>   justLines (l:ls) 
+>     | null ls   = joinLine l
+>     | otherwise = (justLine l) ++ "\n" ++ (justLines ls)
+
+
+Exercise 7.24
