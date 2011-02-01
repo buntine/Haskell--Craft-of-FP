@@ -260,3 +260,27 @@ Exercise 7.23
 
 
 Exercise 7.24
+
+>   wc :: String -> (Int, Int, Int)
+>   wc s
+>     = scanner s 0 1 1
+>       where
+>       scanner :: String -> Int -> Int -> Int -> (Int, Int, Int)
+>       scanner [] c w l = (c, w, l)
+>       scanner (ch:chs) c w l
+>         | ch == '\n' && chs /= [] = scanner chs c (w + 1) (l + 1)
+>         | ch == ' '               = scanner chs c (w + 1) l
+>         | isAscii ch              = scanner chs (c + 1) w l
+>         | otherwise               = scanner chs c w l
+
+
+Probably a better way to do it:
+
+>   wc2 :: String -> (Int, Int, Int)
+>   wc2 s
+>     = (charCount, wordCount, lineCount)
+>       where
+>       charCount = foldl (\t w -> t + length w) 0 words
+>       wordCount = length words
+>       words     = split s
+>       lineCount = length [c | c <- s, c == '\n'] + 1
