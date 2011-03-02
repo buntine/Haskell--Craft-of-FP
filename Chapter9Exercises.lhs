@@ -54,3 +54,11 @@ Exercise 9.7
 >     where
 >     vs =  valsf f n
 
+>   incorder :: [Int] -> Bool
+>   incorder [] = True
+>   incorder (x:xs)
+>     | null xs   = True
+>     | otherwise = (x <= (head xs)) && (incorder xs)
+
+>   incf :: (Int -> Int) -> Int -> Bool
+>   incf f n = incorder (map f [0 .. n])
