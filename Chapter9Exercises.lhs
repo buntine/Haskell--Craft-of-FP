@@ -62,3 +62,26 @@ Exercise 9.7
 
 >   incf :: (Int -> Int) -> Int -> Bool
 >   incf f n = incorder (map f [0 .. n])
+
+
+Exercise 9.11
+
+>   sq :: Int -> Int
+>   sq n = n * n
+
+>   sumsq :: Int -> Int
+>   sumsq n
+>     = foldr (+) 0 sqs
+>     where
+>     sqs = map sq [1..n]
+
+
+Exercise 9.11
+
+>   sumPosSq :: [Int] -> Int
+>   sumPosSq [] = 0
+>   sumPosSq xs
+>     = foldr (+) 0 sqs
+>     where
+>     sqs = map sq posXs
+>     posXs = filter (\y -> y >= 0) xs
