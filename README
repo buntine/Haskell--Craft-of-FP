@@ -1,0 +1,15 @@
+------------------------------------------------
+  Haskell: The Craft of Functional Programming
+  2nd Edition
+  By Simon Thomson
+------------------------------------------------
+
+  My progress through the exercises. My code is mostly contained within the Chapter[n]Exercises.lhs files.
+
+  It's a good book. I'd recommend it for people who are new to Haskell and/or not particularly comfortable in this terrain. I think some Lisp experience will help as the book takes a slightly more abstract approach that *may* give true newcomers to FP some strange ideas. Some understanding of everyday mathemathics is a must.
+
+  http://www.cs.kent.ac.uk/people/staff/sjt/craft2e/
+  http://www.amazon.com/Haskell-Craft-Functional-Programming-2nd/dp/0201342758
+
+  Andrew Buntine, 2010-2011
+  http://www.andrewbuntine.com
